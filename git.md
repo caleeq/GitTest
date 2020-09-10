@@ -14,7 +14,19 @@ git checkout
 
 get clone
 
-.gitignore 忽略文件
+## .gitignore
+
+\#为注释
+
+*.txt       #忽略所有.txt结尾的文件
+
+！lib.txt   #但lib.txt除外
+
+/temp       #忽略根目录下的TODO文件
+
+build/      #忽略build/目录下的所有文件
+
+doc/*.txt   #会忽略doc/notes.txt 但不包括doc/server/arch.txt
 
 ## Linux
 
