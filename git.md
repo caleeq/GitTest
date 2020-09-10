@@ -14,6 +14,8 @@ git checkout
 
 get clone
 
+.gitignore 忽略文件
+
 ## Linux
 
 cd 改变目录
