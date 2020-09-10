@@ -1,10 +1,10 @@
 # Git
 
-git add
+git add .
 
 git reset
 
-git commit
+git commit -m
 
 git push
 
