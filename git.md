@@ -12,7 +12,13 @@ git pull = git fetch && git merge
 
 git checkout
 
-get clone
+git clone
+
+git branch
+
+git branch [branch-name]
+
+git merge
 
 ## .gitignore
 
