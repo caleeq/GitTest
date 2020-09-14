@@ -1,0 +1,60 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-spacing: 0;
+    margin: auto;
+}
+
+th {
+    color: rgb(255, 255, 255);
+    background-color: rgb(214, 121, 0);
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+}
+
+table tr:nth-child(even) {
+    background: #d4d4d4;
+}
+
+.forTable {
+    margin: 10px;
+    padding: 10px;
+}
+
+div {
+    /* border: 1px solid green; */
+}
+
+.forButton {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.forUl {
+    display: none;
+    text-align: center;
+}
+
+ul {
+    margin: 2px auto;
+    line-height: 1.4;
+    padding-left: 0;
+}
+
+li {
+    display: inline;
+    text-align: center;
+}
