@@ -33,9 +33,9 @@ table tr:nth-child(even) {
     padding: 10px;
 }
 
-div {
-    /* border: 1px solid green; */
-}
+/* div {
+    border: 1px solid green;
+} */
 
 .forButton {
     margin: 10px;
@@ -58,3 +58,8 @@ li {
     display: inline;
     text-align: center;
 }
+
+span{
+    color: red !important;
+    display: none;
+    }
