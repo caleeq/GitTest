@@ -8,12 +8,12 @@
     <script src="/jquery-3.5.1.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#showhide').click(function(){
+            $('#showhide').click(function () {
                 $('.forUl').toggle();
             })
             $("input[type='checkbox']").click(function () {
                 var index = $(this).attr('name').substr(3);
-                $('td:nth-child('+index+'),th:nth-child('+index+')').toggle();
+                $('td:nth-child(' + index + '),th:nth-child(' + index + ')').toggle();
             })
         })
     </script>
