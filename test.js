@@ -42,7 +42,9 @@ function generateTable(dataArray) {
 
 
 function ajax() {
-    $.post(ctx + "/book/findBook", {"queryBookName": $("#test").val()}, function (data) {
+    $.post(ctx + "/book/findBook", {
+        "queryBookName": $("#test").val()
+    }, function (data) {
         $("#list").empty();
         if ($("#test").val() !== "") {
             const book = JSON.parse(data);
