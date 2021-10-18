@@ -60,3 +60,23 @@ function ajax() {
         }
     })
 }
+
+var items = [
+    "winterfell",
+    "a knight of the seven kingdoms",
+    "the long night",
+    "the last of the starks",
+    "the bells",
+    "the iron throne"
+];
+
+items.map(function (item) {
+    return its.includes("win");
+})
+
+var arr = [1, 2, 3, 4, 5, 6, 7];
+arr.forEach(function (ele, index) {
+    if (ele % 2) {
+        arr.splice(index, 1);
+    }
+})

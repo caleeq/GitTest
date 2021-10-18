@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <script src="https://kit.fontawesome.com/7dc3015a44.js" crossorigin="anonymous"></script>
+    <!-- <script src="http://ajax.microsoft.com/ajax/jquery/jquery-3.6.0.min.js"></script> -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <section class="section">
+            <div class="content" :style="{display:display}">
+                <div class="columns">
+                    <div class="column">
+                        <input type="text" class="input" placeholder="Request ID" v-model="item.requestId">
+                    </div>
+                    <div class="column">
+                        <input type="text" class="input" placeholder="RBO" v-model="item.rbo">
+                    </div>
+                    <div class="column">
+                        <input type="text" class="input" placeholder="Item Code" v-model="item.itemCode">
+                    </div>
+                    <div class="column">
+                        <input type="text" class="input" placeholder="GLID" v-model="item.glid">
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <input type="text" class="input" placeholder="Dataset" v-model="item.dataset">
+                    </div>
+                    <div class="column">
+                        <div class="select is-fullwidth">
+                            <select v-model="item.requstType">
+                                <option disabled value="">Request Type</option>
+                                <option>New Item</option>
+                                <option>Item Revision</option>
+                                <option>Lookup Table Update</option>
+                                <option>Production Location Change</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <input type="text" class="input" placeholder="Test Order" v-model="item.testOrder">
+                    </div>
+                    <div class="column">
+                        <div class="buttons has-addons is-centered">
+                            <button class="button" @click="additem">
+                                <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <span>Save</span>
+                            </button>
+                            <button class="button" @click="reset">
+                                <span>Reset</span>
+                                <span class="icon">
+                                    <i class="fas fa-redo"></i>
+                                </span>
+                            </button>
+                            <button class="button" @click="displayPanel">
+                                <span>Cancel</span>
+                                <span class="icon">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="level">
+                <div class="level-left">
+                    <div class="control has-icons-left has-icons-right">
+                        <input type="text" class="input" placeholder="Search..." v-model="search">
+                        <span class="icon is-left"><i class="fas fa-search"></i></span>
+                        <span class="icon is-right"><i class="delete" @click="clearSearch"
+                                v-if="search.length"></i></span>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="buttons has-addons">
+                        <button class="button" @click="displayPanel"><i class="fas fa-plus"></i></button>
+                        <button class="button"><i class="fas fa-pen"></i></button>
+                        <button class="button"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" v-model="checkAll[pageNow-1]"></th>
+                            <th>Request ID</th>
+                            <th>RBO</th>
+                            <th>Item Code</th>
+                            <th>GLID</th>
+                            <th>Dataset</th>
+                            <th>Request Type</t>
+                            <th>Test Order</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(result,index) in resultByPage">
+                            <td><input type="checkbox" :checked="checkBox[index]"></td>
+                            <td v-for="data in result">{{data}}</td>
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                        <tr v-if="resultCount">
+                            <td colspan="8">
+                                <nav class="pagination">
+                                    <a class="pagination-previous" @click="toPage(pageNow-1)"
+                                        :disabled="pageNow==1?true:null"><i class="fas fa-chevron-left"></i></a>
+                                    <a class="pagination-next" @click="toPage(pageNow+1)"
+                                        :disabled="pageNow==pageCount?true:undefined"><i
+                                            class="fas fa-chevron-right"></i></a>
+                                    <ul class="pagination-list">
+                                        <li v-for="(page,index) in pageArray"><a class="pagination-link"
+                                                :class="{'is-current':pageArray[index]}"
+                                                @click="toPage(index+1)">{{index+1}}</a></li>
+                                    </ul>
+                                </nav>
+                            </td>
+                        </tr>
+                        <tr v-else class="has-text-centered">
+                            <td colspan="8">No Record Found !</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+    </div>
+    <script src="caleeq.js"></script>
+</body>
+
+</html>

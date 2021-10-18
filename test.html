@@ -3,43 +3,59 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="/style.css">
-    <script src="/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <script src="https://use.fontawesome.com/c9bab0946e.js"></script>
     <title>Document</title>
-    <script>
-        $(document).ready(function () {
-            $("#loginButton").mouseup(function () {
-                if (!$("input.orm-control").val()) {
-                    $("span.check").show();
-                } else {
-                    $("span.check").hide();
-                }
-            })
-        })
-    </script>
+    <style>
+        button {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="wrap">
-        <form action="#" method="post">
-            <div class="form-group">
-                <input type="text" class="form-control" id="username" placeholder="Username">
-                <span id="check_username" class="check">username can be blank</span>
+    <section class="hero is-fullheight is-dark">
+        <div class="hero-body container has-text-left">
+            <div class="column box">
+                <div class="field">
+                    <div class="label is-large">Please Sign in</div>
+                    <p class="help is-danger"></p>
+                </div>
+                <form action="#" method="POST">
+                    <div class="field control has-icons-left">
+                        <input type="text" name="username" id="username" class="input" placeholder="Username" required>
+                        <span class="icon is-left">
+                            <i class="fa fa-user"></i>
+                        </span>
+                    </div>
+                    <div class="field control has-icons-left">
+                        <input type="password" name="password" id="password" class="input" placeholder="Password"
+                            required>
+                        <span class="icon is-left">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+                    <div class="field">
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            Remember me
+                        </label>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button type="submit" class="button is-info">Login</button>
+                        </div>
+                    </div>
+                    <div class="level">
+                        <div class="level-left"><a class="help" href="#">password</a></div>
+                        <div class="level-right"><a class="help" href="#">new account</a></div>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <input type="password" class="form-control" id="password" placeholder="Password">
-                <span id="check_password" class="check">password can be blank</span>
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="formCheck">
-                <label for="formCheck" class="form-check-label">Check me out</label>
-            </div>
-            <span id="check_login" class="check">username or password is incorrect</span>
-            <button type="submit" class="btn btn-primary" id="loginButton">Login</button>
-        </form>
-    </div>
+        </div>
+    </section>
 </body>
 
 </html>
