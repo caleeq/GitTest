@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+    <title>Document</title>
+    <style>
+        .el-header {
+            background-color: #324057;
+            color: red;
+        }
+
+        .el-main {
+            background-color: #e5e9f2;
+        }
+    </style>
+</head>
+
+<body>
+    <el-container id="app">
+        <el-header>
+            <h1 :title="message">Counter: {{counter}}</h1>
+        </el-header>
+        <el-main>
+            <el-table :data="tableData">
+                <el-table-column prop="requestId" label="Request ID"></el-table-column>
+                <el-table-column prop="rbo" label="RBO"></el-table-column>
+                <el-table-column prop="itemCode" label="Item Code"></el-table-column>
+                <el-table-column prop="glid" label="GLID"></el-table-column>
+                <el-table-column prop="testOrder" label="Test Order"></el-table-column>
+            </el-table>
+        </el-main>
+    </el-container>
+
+    <script src="//unpkg.com/vue@next"></script>
+    <script src="//unpkg.com/element-plus"></script>
+    <script>
+        const App = {
+            data() {
+                return {
+                    counter: 0,
+                    message: new Date().toLocaleString(),
+                    tableData: [{
+                            requestId: 'AR00001',
+                            rbo: 'GAP',
+                            itemCode: 'BRPT1ABFSCFA22',
+                            glid: '4-1323456-12-1',
+                            testOrder: 'KK4TO6'
+                        },
+                        {
+                            requestId: 'AR00002',
+                            rbo: 'GAP',
+                            itemCode: 'BRPT1ABFSCFA22',
+                            glid: '4-1323456-12-1',
+                            testOrder: 'KK4TO6'
+                        },
+                        {
+                            requestId: 'AR00003',
+                            rbo: 'GAP',
+                            itemCode: 'BRPT1ABFSCFA22',
+                            glid: '4-1323456-12-1',
+                            testOrder: 'KK4TO6'
+                        },
+                        {
+                            requestId: 'AR00004',
+                            rbo: 'GAP',
+                            itemCode: 'BRPT1ABFSCFA22',
+                            glid: '4-1323456-12-1',
+                            testOrder: 'KK4TO6'
+                        },
+                        {
+                            requestId: 'AR00005',
+                            rbo: 'GAP',
+                            itemCode: 'BRPT1ABFSCFA22',
+                            glid: '4-1323456-12-1',
+                            testOrder: 'KK4TO6'
+                        },
+                        {
+                            requestId: 'AR00006',
+                            rbo: 'GAP',
+                            itemCode: 'BRPT1ABFSCFA22',
+                            glid: '4-1323456-12-1',
+                            testOrder: 'KK4TO6'
+                        },
+                    ]
+                }
+            },
+            mounted() {
+                setInterval(() => {
+                    this.counter++
+                }, 1000)
+            }
+        }
+
+        const app = Vue.createApp(App)
+        app.use(ElementPlus);
+        app.mount("#app");
+    </script>
+</body>
+
+</html>
